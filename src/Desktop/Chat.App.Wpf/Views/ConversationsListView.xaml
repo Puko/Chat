@@ -1,0 +1,126 @@
+<UserControl
+    x:Class="Chat.App.Wpf.Views.ConversationsListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:loc="clr-namespace:Chat.App.Wpf.Localization"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Chat.App.Wpf.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewModels:ConversationsListViewModel,
+                                     IsDesignTimeCreatable=False}"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource ChatWindowBackgroundBrush}">
+        <Grid Margin="{StaticResource ChatPageMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Style="{StaticResource ChatSurfaceBorderStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="0,0,0,18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Style="{StaticResource ChatTitleTextStyle}" Text="{loc:Loc Conversations_Title}" />
+                            <TextBlock Style="{StaticResource ChatMetaTextStyle}" Text="{Binding LoggedInUserText}" />
+                        </StackPanel>
+
+                        <Button
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Command="{Binding OpenNewConversationCommand}"
+                            Style="{StaticResource ChatFabButtonStyle}"
+                            ToolTip="{loc:Loc Shell_NewConversation}">
+                            <materialDesign:PackIcon
+                                Width="22"
+                                Height="22"
+                                Kind="Plus" />
+                        </Button>
+                    </Grid>
+
+                    <ListBox
+                        x:Name="ConversationItems"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Items}"
+                        Style="{StaticResource ChatConversationListStyle}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource ChatListItemBorderStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border VerticalAlignment="Top" Style="{StaticResource ChatAvatarBorderStyle}">
+                                            <TextBlock Style="{StaticResource ChatAvatarTextStyle}" Text="{Binding Initial}" />
+                                        </Border>
+
+                                        <StackPanel Grid.Column="1" Margin="16,0,18,0">
+                                            <TextBlock
+                                                FontFamily="Bahnschrift SemiBold"
+                                                FontSize="17"
+                                                Foreground="{StaticResource ChatInkBrush}"
+                                                Text="{Binding Title}" />
+                                            <TextBlock
+                                                Margin="0,6,0,0"
+                                                Foreground="{StaticResource ChatMutedBrush}"
+                                                Text="{Binding Preview}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                            <TextBlock
+                                                HorizontalAlignment="Right"
+                                                Style="{StaticResource ChatMetaTextStyle}"
+                                                Text="{Binding LastActivityText}" />
+                                            <Border
+                                                x:Name="UnreadBadge"
+                                                Margin="0,12,0,0"
+                                                HorizontalAlignment="Right"
+                                                Style="{StaticResource ChatCountBadgeBorderStyle}">
+                                                <TextBlock
+                                                    Foreground="White"
+                                                    Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                                    Text="{Binding UnreadBadgeText}" />
+                                            </Border>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding HasUnread}" Value="False">
+                                        <Setter TargetName="UnreadBadge" Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style BasedOn="{StaticResource ChatConversationListItemStyle}" TargetType="ListBoxItem">
+                                <EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_OnMouseDoubleClick" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,14,0,0"
+                Style="{StaticResource ChatErrorTextStyle}"
+                Text="{Binding ErrorMessage}"
+                Visibility="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToVisibility}}" />
+        </Grid>
+
+    </Grid>
+</UserControl>

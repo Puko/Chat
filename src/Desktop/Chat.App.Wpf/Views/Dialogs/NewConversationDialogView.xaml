@@ -1,0 +1,96 @@
+<UserControl
+    x:Class="Chat.App.Wpf.Views.Dialogs.NewConversationDialogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Chat.App.Wpf.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogViewModels="clr-namespace:Chat.App.Wpf.ViewModels.DialogViewModels"
+    xmlns:loc="clr-namespace:Chat.App.Wpf.Localization"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Chat.App.Wpf.ViewModels"
+    d:DataContext="{d:DesignInstance Type=dialogViewModels:NewConversationDialogViewModel,
+                                     IsDesignTimeCreatable=False}"
+    mc:Ignorable="d">
+
+    <materialDesign:Card Style="{StaticResource ChatDialogCardStyle}">
+        <StackPanel>
+            <TextBlock Style="{StaticResource ChatTitleTextStyle}" Text="{loc:Loc NewConversation_Title}" />
+            <TextBlock Style="{StaticResource ChatSubtitleTextStyle}" Text="{loc:Loc NewConversation_Subtitle}" />
+
+            <TextBox
+                materialDesign:HintAssist.Hint="{loc:Loc NewConversation_SearchHint}"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                materialDesign:TextFieldAssist.LeadingIcon="AccountSearch"
+                Style="{StaticResource ChatOutlinedTextBoxStyle}"
+                Text="{Binding UserSearchText, UpdateSourceTrigger=PropertyChanged}" />
+
+            <ProgressBar
+                Height="4"
+                Margin="0,0,0,14"
+                IsIndeterminate="True"
+                Visibility="{Binding IsSearchingUsers, Converter={StaticResource BooleanToVisibility}}" />
+
+            <ListView
+                MaxHeight="180"
+                Margin="0,0,0,14"
+                ItemsSource="{Binding SearchResults}"
+                MouseLeftButtonUp="SearchResults_OnMouseLeftButtonUp"
+                Style="{StaticResource ChatConversationListStyle}"
+                Visibility="{Binding HasSearchResults, Converter={StaticResource BooleanToVisibility}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource ChatListItemBorderStyle}">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Style="{StaticResource ChatAvatarBorderStyle}">
+                                    <TextBlock Style="{StaticResource ChatAvatarTextStyle}" Text="{Binding Initial}" />
+                                </Border>
+                                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock
+                                        FontWeight="SemiBold"
+                                        Foreground="{StaticResource ChatInkBrush}"
+                                        Text="{Binding Username}" />
+                                    <TextBlock Style="{StaticResource ChatMetaTextStyle}" Text="{loc:Loc NewConversation_ResultHint}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style BasedOn="{StaticResource ChatConversationListItemStyle}" TargetType="ListViewItem" />
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <Border
+                Margin="0,0,0,14"
+                Style="{StaticResource ChatCalloutBorderStyle}"
+                Visibility="{Binding SelectedUserText, Converter={StaticResource StringNotEmptyToVisibility}}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="18"
+                        Height="18"
+                        Margin="0,0,8,0"
+                        Foreground="{StaticResource ChatPrimaryDarkBrush}"
+                        Kind="CheckCircle" />
+                    <TextBlock
+                        Foreground="{StaticResource ChatPrimaryDarkBrush}"
+                        Style="{StaticResource MaterialDesignBody2TextBlock}"
+                        Text="{Binding SelectedUserText}" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock
+                Style="{StaticResource ChatErrorTextStyle}"
+                Text="{Binding ErrorMessage}"
+                Visibility="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToVisibility}}" />
+
+            <controls:DialogButtonPanel
+                CancelCommand="{Binding CancelDialogCommand}"
+                CancelText="{loc:Loc NewConversation_Cancel}"
+                ConfirmCommand="{Binding ConfirmCommand}"
+                ConfirmIcon="Check"
+                ConfirmText="{loc:Loc NewConversation_Create}" />
+        </StackPanel>
+    </materialDesign:Card>
+</UserControl>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Login_Title" xml:space="preserve">
+    <value>Prihlásenie</value>
+  </data>
+  <data name="Login_Username" xml:space="preserve">
+    <value>Používateľské meno</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="Login_Submit" xml:space="preserve">
+    <value>Prihlásiť sa</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Nemáte účet? Registrácia</value>
+  </data>
+
+  <data name="Register_Title" xml:space="preserve">
+    <value>Registrácia</value>
+  </data>
+  <data name="Register_Username" xml:space="preserve">
+    <value>Používateľské meno</value>
+  </data>
+  <data name="Register_Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="Register_Submit" xml:space="preserve">
+    <value>Vytvoriť účet</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Už máte účet? Prihlásenie</value>
+  </data>
+
+  <data name="Conversations_Title" xml:space="preserve">
+    <value>Konverzácie</value>
+  </data>
+  <data name="Conversations_LoggedInAs" xml:space="preserve">
+    <value>Prihlásený: {0}</value>
+  </data>
+  <data name="Conversations_EmptyPreview" xml:space="preserve">
+    <value>Začnite konverzáciu.</value>
+  </data>
+
+  <data name="Conversation_SectionLabel" xml:space="preserve">
+    <value>Konverzácia</value>
+  </data>
+  <data name="Conversation_Back" xml:space="preserve">
+    <value>Späť</value>
+  </data>
+  <data name="Conversation_MessageCount" xml:space="preserve">
+    <value>Správy: {0}</value>
+  </data>
+  <data name="Conversation_MessagePlaceholder" xml:space="preserve">
+    <value>Napíšte správu</value>
+  </data>
+  <data name="Conversation_Send" xml:space="preserve">
+    <value>Odoslať</value>
+  </data>
+  <data name="Conversation_You" xml:space="preserve">
+    <value>Vy</value>
+  </data>
+
+  <data name="NewConversation_Title" xml:space="preserve">
+    <value>Nová konverzácia</value>
+  </data>
+  <data name="NewConversation_Subtitle" xml:space="preserve">
+    <value>Zadajte aspoň 2 znaky.</value>
+  </data>
+  <data name="NewConversation_SearchHint" xml:space="preserve">
+    <value>Používateľské meno</value>
+  </data>
+  <data name="NewConversation_ResultHint" xml:space="preserve">
+    <value>Kliknutím vyberiete</value>
+  </data>
+  <data name="NewConversation_Selected" xml:space="preserve">
+    <value>Vybraný: {0}</value>
+  </data>
+  <data name="NewConversation_Cancel" xml:space="preserve">
+    <value>Zrušiť</value>
+  </data>
+  <data name="NewConversation_Create" xml:space="preserve">
+    <value>Vytvoriť</value>
+  </data>
+  <data name="NewConversation_SelectUserError" xml:space="preserve">
+    <value>Vyberte používateľa zo zoznamu.</value>
+  </data>
+  <data name="NewConversation_CannotSelfError" xml:space="preserve">
+    <value>So sebou nemôžete vytvoriť konverzáciu.</value>
+  </data>
+
+  <data name="Shell_LoggedInUser" xml:space="preserve">
+    <value>Prihlásený používateľ</value>
+  </data>
+  <data name="Shell_NewConversation" xml:space="preserve">
+    <value>Nová konverzácia</value>
+  </data>
+  <data name="Shell_Logout" xml:space="preserve">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="Shell_LogoutConfirmTitle" xml:space="preserve">
+    <value>Odhlásenie</value>
+  </data>
+  <data name="Shell_LogoutConfirmMessage" xml:space="preserve">
+    <value>Naozaj sa chcete odhlásiť?</value>
+  </data>
+
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Zrušiť</value>
+  </data>
+
+  <data name="Time_New" xml:space="preserve">
+    <value>Nové</value>
+  </data>
+
+  <data name="Errors_RequiredFields" xml:space="preserve">
+    <value>Vyplňte meno aj heslo.</value>
+  </data>
+  <data name="Errors_SessionExpired" xml:space="preserve">
+    <value>Relácia vypršala. Prihláste sa znova.</value>
+  </data>
+  <data name="Errors_InvalidCredentials" xml:space="preserve">
+    <value>Nesprávne meno alebo heslo.</value>
+  </data>
+  <data name="Errors_Unauthenticated" xml:space="preserve">
+    <value>Nie ste prihlásený.</value>
+  </data>
+  <data name="Errors_Forbidden" xml:space="preserve">
+    <value>Nemáte oprávnenie na túto akciu.</value>
+  </data>
+  <data name="Errors_DuplicateUsername" xml:space="preserve">
+    <value>Toto používateľské meno je už obsadené.</value>
+  </data>
+  <data name="Errors_ConversationNotFound" xml:space="preserve">
+    <value>Konverzácia neexistuje.</value>
+  </data>
+  <data name="Errors_NotParticipant" xml:space="preserve">
+    <value>Nie ste účastníkom tejto konverzácie.</value>
+  </data>
+  <data name="Errors_UserNotFound" xml:space="preserve">
+    <value>Používateľ neexistuje.</value>
+  </data>
+  <data name="Errors_CannotChatWithSelf" xml:space="preserve">
+    <value>So sebou nemôžete chatovať.</value>
+  </data>
+  <data name="Errors_MappingFailed" xml:space="preserve">
+    <value>Nastala neočakávaná chyba.</value>
+  </data>
+  <data name="Errors_NotFound" xml:space="preserve">
+    <value>Požadovaný záznam neexistuje.</value>
+  </data>
+  <data name="Errors_Conflict" xml:space="preserve">
+    <value>Požiadavku sa nepodarilo dokončiť.</value>
+  </data>
+  <data name="Errors_Generic" xml:space="preserve">
+    <value>Niečo sa pokazilo. Skúste to znova.</value>
+  </data>
+  <data name="Errors_WebSocketConnectFailed" xml:space="preserve">
+    <value>Nepodarilo sa pripojiť na server.</value>
+  </data>
+  <data name="Errors_WebSocketDisconnected" xml:space="preserve">
+    <value>Spojenie so serverom bolo prerušené.</value>
+  </data>
+</root>

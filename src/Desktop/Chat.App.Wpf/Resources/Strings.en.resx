@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Login_Title" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_Submit" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Don't have an account? Register</value>
+  </data>
+
+  <data name="Register_Title" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Register_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Register_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Register_Submit" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="Register_HaveAccount" xml:space="preserve">
+    <value>Already have an account? Login</value>
+  </data>
+
+  <data name="Conversations_Title" xml:space="preserve">
+    <value>Conversations</value>
+  </data>
+  <data name="Conversations_LoggedInAs" xml:space="preserve">
+    <value>Logged in: {0}</value>
+  </data>
+  <data name="Conversations_EmptyPreview" xml:space="preserve">
+    <value>Start a conversation.</value>
+  </data>
+
+  <data name="Conversation_SectionLabel" xml:space="preserve">
+    <value>Conversation</value>
+  </data>
+  <data name="Conversation_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Conversation_MessageCount" xml:space="preserve">
+    <value>Messages: {0}</value>
+  </data>
+  <data name="Conversation_MessagePlaceholder" xml:space="preserve">
+    <value>Write a message</value>
+  </data>
+  <data name="Conversation_Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Conversation_You" xml:space="preserve">
+    <value>You</value>
+  </data>
+
+  <data name="NewConversation_Title" xml:space="preserve">
+    <value>New conversation</value>
+  </data>
+  <data name="NewConversation_Subtitle" xml:space="preserve">
+    <value>Type at least 2 characters.</value>
+  </data>
+  <data name="NewConversation_SearchHint" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="NewConversation_ResultHint" xml:space="preserve">
+    <value>Click to select</value>
+  </data>
+  <data name="NewConversation_Selected" xml:space="preserve">
+    <value>Selected: {0}</value>
+  </data>
+  <data name="NewConversation_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewConversation_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="NewConversation_SelectUserError" xml:space="preserve">
+    <value>Select a user from the list.</value>
+  </data>
+  <data name="NewConversation_CannotSelfError" xml:space="preserve">
+    <value>You can't start a conversation with yourself.</value>
+  </data>
+
+  <data name="Shell_LoggedInUser" xml:space="preserve">
+    <value>Logged in user</value>
+  </data>
+  <data name="Shell_NewConversation" xml:space="preserve">
+    <value>New conversation</value>
+  </data>
+  <data name="Shell_Logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Shell_LogoutConfirmTitle" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Shell_LogoutConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to log out?</value>
+  </data>
+
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+
+  <data name="Time_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+
+  <data name="Errors_RequiredFields" xml:space="preserve">
+    <value>Enter a username and password.</value>
+  </data>
+  <data name="Errors_SessionExpired" xml:space="preserve">
+    <value>Your session expired. Please log in again.</value>
+  </data>
+  <data name="Errors_InvalidCredentials" xml:space="preserve">
+    <value>Incorrect username or password.</value>
+  </data>
+  <data name="Errors_Unauthenticated" xml:space="preserve">
+    <value>You are not logged in.</value>
+  </data>
+  <data name="Errors_Forbidden" xml:space="preserve">
+    <value>You don't have permission to do this.</value>
+  </data>
+  <data name="Errors_DuplicateUsername" xml:space="preserve">
+    <value>This username is already taken.</value>
+  </data>
+  <data name="Errors_ConversationNotFound" xml:space="preserve">
+    <value>Conversation not found.</value>
+  </data>
+  <data name="Errors_NotParticipant" xml:space="preserve">
+    <value>You're not a participant in this conversation.</value>
+  </data>
+  <data name="Errors_UserNotFound" xml:space="preserve">
+    <value>User not found.</value>
+  </data>
+  <data name="Errors_CannotChatWithSelf" xml:space="preserve">
+    <value>You can't chat with yourself.</value>
+  </data>
+  <data name="Errors_MappingFailed" xml:space="preserve">
+    <value>An unexpected error occurred.</value>
+  </data>
+  <data name="Errors_NotFound" xml:space="preserve">
+    <value>The requested item was not found.</value>
+  </data>
+  <data name="Errors_Conflict" xml:space="preserve">
+    <value>The request could not be completed.</value>
+  </data>
+  <data name="Errors_Generic" xml:space="preserve">
+    <value>Something went wrong. Please try again.</value>
+  </data>
+  <data name="Errors_WebSocketConnectFailed" xml:space="preserve">
+    <value>Could not connect to the server.</value>
+  </data>
+  <data name="Errors_WebSocketDisconnected" xml:space="preserve">
+    <value>Connection to the server was interrupted.</value>
+  </data>
+</root>

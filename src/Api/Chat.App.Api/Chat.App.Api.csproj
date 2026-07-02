@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Chat.App.Application\Chat.App.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Chat.App.Database\Chat.App.Database.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Chat.App.JWT\Chat.App.JWT.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Chat.App.Websockets\Chat.App.Websockets.csproj" />
+    <ProjectReference Include="..\..\Shared\Chat.App.Contract\Chat.App.Contract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="10.0.10" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

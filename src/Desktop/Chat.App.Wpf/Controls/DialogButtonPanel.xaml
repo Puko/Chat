@@ -1,0 +1,38 @@
+<UserControl
+    x:Class="Chat.App.Wpf.Controls.DialogButtonPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    mc:Ignorable="d">
+
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button
+            Command="{Binding CancelCommand, ElementName=Root}"
+            Content="{Binding CancelText, ElementName=Root}"
+            Style="{StaticResource ChatTextButtonStyle}" />
+
+        <Button
+            Grid.Column="2"
+            Command="{Binding ConfirmCommand, ElementName=Root}"
+            IsDefault="{Binding IsConfirmDefault, ElementName=Root}"
+            Style="{StaticResource ChatPrimaryButtonStyle}">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="18"
+                    Height="18"
+                    Margin="0,0,8,0"
+                    Kind="{Binding ConfirmIcon, ElementName=Root}" />
+                <TextBlock Text="{Binding ConfirmText, ElementName=Root}" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,165 @@
+<UserControl
+    x:Class="Chat.App.Wpf.Views.ConversationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:loc="clr-namespace:Chat.App.Wpf.Localization"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Chat.App.Wpf.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewModels:ConversationViewModel,
+                                     IsDesignTimeCreatable=False}"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource ChatWindowBackgroundBrush}">
+        <Grid Margin="{StaticResource ChatPageMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border
+                Grid.Row="0"
+                Margin="0,0,0,18"
+                Style="{StaticResource ChatSurfaceBorderStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Grid.Column="0"
+                        Command="{Binding GoBackCommand}"
+                        Style="{StaticResource ChatIconButtonStyle}"
+                        ToolTip="{loc:Loc Conversation_Back}">
+                        <materialDesign:PackIcon Kind="ArrowLeft" />
+                    </Button>
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="14,0,0,0"
+                        VerticalAlignment="Center">
+                        <TextBlock Style="{StaticResource ChatSectionLabelTextStyle}" Text="{loc:Loc Conversation_SectionLabel}" />
+                        <TextBlock Style="{StaticResource ChatTitleTextStyle}" Text="{Binding Title}" />
+                    </StackPanel>
+
+                    <Border
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource ChatInfoChipBorderStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="18"
+                                Height="18"
+                                Margin="0,0,8,0"
+                                Foreground="{StaticResource ChatPrimaryDarkBrush}"
+                                Kind="MessageText" />
+                            <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Text="{Binding MessageCountText}" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource ChatSurfaceBorderStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <ListView
+                        x:Name="MessagesList"
+                        Grid.Row="1"
+                        HorizontalContentAlignment="Stretch"
+                        ItemsSource="{Binding Messages}"
+                        Style="{StaticResource ChatMessageListStyle}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackPanel
+                                    x:Name="MessageRoot"
+                                    MaxWidth="{StaticResource ChatMessageMaxWidth}"
+                                    Margin="0,0,0,8"
+                                    HorizontalAlignment="Right">
+                                    <TextBlock
+                                        x:Name="MetaText"
+                                        Margin="2,0,6,2"
+                                        Style="{StaticResource ChatMessageSenderTextStyle}"
+                                        Text="{Binding SenderLine}" />
+
+                                    <Border x:Name="BubbleBorder" Style="{StaticResource ChatMessageBubbleBorderStyle}">
+                                        <TextBlock
+                                            x:Name="ContentText"
+                                            Style="{StaticResource ChatMessageContentTextStyle}"
+                                            Text="{Binding Content}" />
+                                    </Border>
+                                </StackPanel>
+
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
+                                        <Setter TargetName="MessageRoot" Property="HorizontalAlignment" Value="Left" />
+                                        <Setter TargetName="MetaText" Property="TextAlignment" Value="Left" />
+                                        <Setter TargetName="MetaText" Property="Foreground" Value="{StaticResource ChatPrimaryDarkBrush}" />
+                                        <Setter TargetName="BubbleBorder" Property="Background" Value="{StaticResource ChatOwnMessageBrush}" />
+                                        <Setter TargetName="BubbleBorder" Property="BorderBrush" Value="{StaticResource ChatOwnMessageBorderBrush}" />
+                                        <Setter TargetName="ContentText" Property="Foreground" Value="{StaticResource ChatOwnMessageForegroundBrush}" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+
+            <StackPanel Grid.Row="2" Margin="0,18,0,0">
+                <TextBlock
+                    Style="{StaticResource ChatErrorTextStyle}"
+                    Text="{Binding ErrorMessage}"
+                    Visibility="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToVisibility}}" />
+
+                <Border Style="{StaticResource ChatSurfaceBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            Grid.Column="0"
+                            MinHeight="56"
+                            Margin="0"
+                            VerticalContentAlignment="Center"
+                            materialDesign:HintAssist.Hint="{loc:Loc Conversation_MessagePlaceholder}"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                            materialDesign:TextFieldAssist.LeadingIcon="MessageText"
+                            Style="{StaticResource ChatOutlinedTextBoxStyle}"
+                            Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding SendCommand}" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+
+                        <Button
+                            Grid.Column="1"
+                            Margin="14,0,0,0"
+                            VerticalAlignment="Center"
+                            Command="{Binding SendCommand}"
+                            Style="{StaticResource ChatPrimaryButtonStyle}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,8,0"
+                                    Kind="Send" />
+                                <TextBlock Text="{loc:Loc Conversation_Send}" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
